@@ -3,12 +3,14 @@ import Nav from './component/Nav';
 import Social from './component/Store';
 import SmallCentered from './component/Footer';
 import { Grid, GridItem } from '@chakra-ui/react';
+import LoginForm from './component/Login';
 function App() {
   return (
     < >
     <Nav>
 
     </Nav>
+    <LoginForm />
     <div className='card'>
     <Grid templateColumns='repeat(3, 1fr)' gap={2}>
     <Social Image = {"Js.png"}
