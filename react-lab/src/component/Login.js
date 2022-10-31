@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import {
     Button,
     Flex,
@@ -10,9 +11,34 @@ import {
   } from '@chakra-ui/react';
   
   export default function LoginForm () {
+
+    const [email, setEmail]= useState('');
+
+    const [password, setPassword]= useState('');
+    const [error, setError]= useState(false);
+
+    const [successMsg, setSuccessMsg]= useState('');
+
+    // const handleEmailChange = (e) => {
+    //     setSuccessMsg ('');
+    //     setEmailError ('');
+    //     setEmail(e.target.value);
+    // }
+    // const handlePasswordChange = (e) => {
+    //     setSuccessMsg ('');
+    //     setPasswordError ('');
+    //     setPassword(e.target.value);
+    // }
+
+    const handleSubmit =(e) => {
+        if (email=== '' && password === ''){
+            setError (true)
+        }
+        console.log(email,password);
+    }
     
     return (
-      <Flex
+      <Flex onSubmit={handleSubmit}
         minH={'100vh'}
         align={'center'}
         justify={'center'}
@@ -30,16 +56,19 @@ import {
           Sign in to your account
             </Heading>
           <FormControl id="email" isRequired>
+            {error && email!== ''?<FormLabel>Please Enter Your Email</FormLabel>: '' }
             <FormLabel>Email address</FormLabel>
             <Input
               placeholder="your-email@example.com"
               _placeholder={{ color: 'gray.500' }}
               type="email"
-            />
+              onChange={e => setEmail(e.target.value)}
+              />
           </FormControl>
           <FormControl id="password" isRequired>
+            {error && password !== ''? <FormLabel>Please Enter Your Password</FormLabel>: ''}
             <FormLabel>Password</FormLabel>
-            <Input type="password" />
+            <Input type="password" onChange={e => setPassword(e.target.value)}/>
           </FormControl>
           <Stack spacing={6}>
             <Button
