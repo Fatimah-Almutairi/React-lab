@@ -13,32 +13,42 @@ import {
   export default function LoginForm () {
 
     const [email, setEmail]= useState('');
+    const [errorEmail, setEmailError]= useState('');
 
     const [password, setPassword]= useState('');
-    const [error, setError]= useState(false);
+    const [errorPassword, setPasswordError]= useState('');
 
-    const [successMsg, setSuccessMsg]= useState('');
+    // const [error, setError]= useState(false);
+
+    // const [successMsg, setSuccessMsg]= useState('');
 
     // const handleEmailChange = (e) => {
-    //     setSuccessMsg ('');
     //     setEmailError ('');
     //     setEmail(e.target.value);
     // }
+
     // const handlePasswordChange = (e) => {
-    //     setSuccessMsg ('');
     //     setPasswordError ('');
     //     setPassword(e.target.value);
     // }
 
     const handleSubmit =(e) => {
         if (email=== '' && password === ''){
-            setError (true)
-        }
+            // setError (true);
+            setEmailError ('Email Required');
+            setPasswordError ('Password Required');
+
+        }else{
         console.log(email,password);
+        }
     }
+
+    // const handleError = (e) => {
+    //     setError = '';
+    // }
     
     return (
-      <Flex onSubmit={handleSubmit}
+      <Flex 
         minH={'100vh'}
         align={'center'}
         justify={'center'}
@@ -55,9 +65,9 @@ import {
           <Heading lineHeight={1.1} fontSize={{ base: '2xl', md: '3xl' }}>
           Sign in to your account
             </Heading>
-          <FormControl id="email" isRequired>
-            {error && email!== ''?<FormLabel>Please Enter Your Email</FormLabel>: '' }
-            <FormLabel>Email address</FormLabel>
+          <FormControl id="email">
+            <FormLabel>Email address {errorEmail}</FormLabel>
+            {/* {error && email=== ''?<FormLabel>Please Enter Your Email</FormLabel>:'' }  */}
             <Input
               placeholder="your-email@example.com"
               _placeholder={{ color: 'gray.500' }}
@@ -65,13 +75,13 @@ import {
               onChange={e => setEmail(e.target.value)}
               />
           </FormControl>
-          <FormControl id="password" isRequired>
-            {error && password !== ''? <FormLabel>Please Enter Your Password</FormLabel>: ''}
-            <FormLabel>Password</FormLabel>
+          <FormControl id="password">
+            {/* {error && password === ''? <FormLabel>Please Enter Your Password</FormLabel>: ''} */}
+            <FormLabel>Password {errorPassword}</FormLabel>
             <Input type="password" onChange={e => setPassword(e.target.value)}/>
           </FormControl>
           <Stack spacing={6}>
-            <Button
+            <Button onSubmit={handleSubmit}
               bg={'blue.400'}
               color={'white'}
               _hover={{
