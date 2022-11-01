@@ -7,13 +7,13 @@ import {
     Flex,
     Heading,
     Image,
-    Link,
+    // Link,
     Stack,
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
   
-  export default function Social(props) {
+  export default function Cards(props) {
     let join;
     let bg;
     if (props.join === true) {
