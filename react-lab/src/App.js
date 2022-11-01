@@ -39,6 +39,12 @@ function App() {
               </Box> */}
 
     </Nav>
+    <Input type="text" placeholder="Search..." onChange={(e) => {
+                    e.preventDefault();
+                    setSearch(e.target.value); }} />
+                      <Button>
+                  <Image src="search.png" width="90%" height="80%" />
+                </Button>
     <LoginForm />
     <div className='card'>
     <Grid templateColumns='repeat(3, 1fr)' gap={2}>{find.map((item) => (
