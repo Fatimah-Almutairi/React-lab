@@ -14,12 +14,12 @@ function App() {
     < >
     <Nav>
 
-            <Input type="text" placeholder="Search..." onChange={(e) => {
+            {/* <Input type="text" placeholder="Search..." onChange={(e) => {
                     e.preventDefault();
                     setSearch(e.target.value); }} />
                       <Button>
                   <Image src="search.png" width="90%" height="80%" />
-                </Button>
+                </Button> */}
         {/* <div className='grid-container'>
         <div className='cards-container'>
           {find.map((item) => (
