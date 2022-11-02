@@ -13,7 +13,7 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   
-  export default function Cards(props) {
+  export default function Store(props) {
     let join;
     let bg;
     if (props.join === true) {
@@ -21,17 +21,8 @@ import {
          bg = 'green';
     }else {
         join = "التسجيل مغلق";
-        // join.style = "background-color :gray";   
-        // let color = "gray";
-        bg = 'gray';
 
-    //     <Button
-    //     bg={'black'}
-    //     color={'black'}>
-    //      join = "التسجيل مغلق";   
-    //   </Button> 
- 
-        // join.style  = {backgroundColor : 'gray', color : "white"}
+        bg = 'gray';
     }
     return (
       <Center py={6}>
